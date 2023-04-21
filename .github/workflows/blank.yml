@@ -29,5 +29,5 @@ jobs:
         run: |
           docker pull registry.k8s.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
           docker tag registry.k8s.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2 registry.cn-hangzhou.aliyuncs.com/k8storageclass/nfs-subdir-external-provisioner:v4.0.2
-          docker login --username=${ALIYUN_USERNAME} --password=${ALIYUN_PASSWD} registry.cn-hangzhou.aliyuncs.com
+          docker login --username={{ ALIYUN_USERNAME }} --password={{ ALIYUN_PASSWD }} registry.cn-hangzhou.aliyuncs.com
           docker push registry.cn-hangzhou.aliyuncs.com/k8storageclass/nfs-subdir-external-provisioner:v4.0.2
