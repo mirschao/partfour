@@ -119,7 +119,7 @@ helloworld    RUNNING   pid 20964, uptime 0:00:34
 
 这里如果我们想要实现自动化发布Python程序的话, 最好使用ansible来进行发布, 当然如果想要实现gitlab+Jenkins的CICD的话, 只需要将剧本绑定至Jenkins的job上即可。
 
-<img src="/Users/mirschao/Downloads/content.drawio.png" alt="cicd-structure" style="zoom: 67%;" />
+<img src="images/content.drawio.png" alt="cicd-structure" style="zoom: 67%;" />
 
 ```yaml
 ---
