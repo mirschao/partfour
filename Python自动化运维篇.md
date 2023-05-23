@@ -422,6 +422,8 @@ In [2]: if variable > 10:
    ...:
 variable: 123 is more then 10
 
+# --------------------------------------------我是分割线------------------------------------------------#
+
 ## for 循环语句
 In [3]: listA = ["hello world", False, 1, 2, 3, 3.14]
 In [4]: for data in listA:
@@ -434,6 +436,8 @@ False
 3
 3.14
 
+# --------------------------------------------我是分割线------------------------------------------------#
+
 ## while 循环语句
 In [5]: n = 0
 In [6]: while n < 5:
@@ -445,7 +449,510 @@ In [6]: while n < 5:
 2
 3
 4
+```
 
+
+
+#### 数据结构类型
+
+在Python中除了简单的数据类型, 还会涉及到组织这些基本数据类型的数据结构, 在Python中数据结构分为四种：元组、列表、字典、集合四种类型。它们各有各的用途，相互之间也可配合完成任务。在互联网的传输过程中也常用字典和列表来进行数据的组织, 常常被称作json数据。元组和集合通常都是配合中间状态的数据进行使用的。
+
+**元组的定义声明及操作方法**
+
+```python
+#!/usr/bin/env python311
+#
+# author: <@xxxxxx>
+# email: <@xxxxxx@company_email_inc.com>
+# date: <@create_time>
+# business: <@business_name>
+
+
+#> 定义元组
+tupleA = (1, 2, 3, "hello world", "123", True, 3.14)
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 对元组中的数据进行遍历
+for element in tupleA:
+  print(element)
+
+##>> Out:
+1
+2
+3
+hello world
+123
+True
+3.14
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 使用索引和切片控制元组的元素
+tupleA[2:5]  # Out: (3, 'hello world', '123')
+tupleA[::-1] # Out: (3.14, True, '123', 'hello world', 3, 2, 1)
+tupleA[:5]   # Out: (1, 2, 3, 'hello world', '123')
+tupleA[2:]   # Out: (3, 'hello world', '123', True, 3.14)
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 使用for循环对元组的索引进行操作
+for index in range(len(tupleA)):
+  print("{index} is: {tupleA_element}".format(index=index, tupleA_element=tupleA[index]))
+
+##>> Out:
+0 is: 1
+1 is: 2
+2 is: 3
+3 is: hello world
+4 is: 123
+5 is: True
+6 is: 3.14
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 元组的解包
+tupleB = ("abc", 123)
+varA, varB = tupleB
+print("varA is: {varA}".format(varA=varA))
+print("varB is: {varB}".format(varB=varB))
+
+##>> Out: 
+varA is: abc
+varB is: 123
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 元组的自建方法
+tupleA.count(1)  # Out: 2 数量
+tupleA.index(3)  # Out: 2 索引号
+```
+
+**集合的定义声明和操作方法**
+
+```python
+#!/usr/bin/env python311
+#
+# author: <@xxxxxx>
+# email: <@xxxxxx@company_email_inc.com>
+# date: <@create_time>
+# business: <@business_name>
+
+
+#> 定义集合
+setA = {1, 1, 2, 2, 3, 3}
+print(setA)  # Out: {1, 2, 3} # 天然的去重工具
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 使用for循环遍历集合
+for element in setA:
+  print(element)
+
+##>> Out:
+1
+2
+3
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 两个集合的交并集
+setA = {1, 2, 3, 4, 5}
+setB = {4, 5, 6, 7, 8}
+
+#>> 取并集
+setA | setB  # Out: {1, 2, 3, 4, 5, 6, 7, 8}
+
+#>> 取交集
+setA & setB  # Out: {4, 5}
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 集合中的增删改查操作方法
+
+setA = {1, 2, 3, 4, 5}
+setA.add(6)              # Out: {1, 2, 3, 4, 5, 6}
+setA.update({7, 8, 9})   # Out: {1, 2, 3, 4, 5, 6, 7, 8, 9}
+setA.pop()               # Out: {2, 3, 4, 5, 6, 7, 8, 9}
+setA.remove(2)           # Out: {3, 4, 5, 6, 7, 8, 9}
+setA.pop()               # Out: {4, 5, 6, 7, 8, 9}
+setA.clear()             # Out: {}
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 在判断条件中的应用
+if 3.14 not in {1, 2, 3, 4}:
+  print("3.14 is not exist of set.")
+```
+
+**列表的定义声明和操作方法**
+
+```python
+#!/usr/bin/env python311
+#
+# author: <@xxxxxx>
+# email: <@xxxxxx@company_email_inc.com>
+# date: <@create_time>
+# business: <@business_name>
+
+
+#> 定义列表
+listA = [1, 2, 3, "hello world", False, 3.14]
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 使用for循环遍历列表
+for element in listA:
+  print(element)
+
+##>> Out:
+1
+2
+3
+hello world
+False
+3.14
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 列表的索引及切片
+listA[::-1]    # Out: [3.14, False, 'hello world', 3, 2, 1]
+listA[:4]      # Out: [1, 2, 3, 'hello world']
+listA[3:]      # Out: ['hello world', False, 3.14]
+listA[2:4]     # Out: [3, 'hello world']
+
+#> 修改列表中某个元素的值
+listA[2] = "san"
+print(listA)   # Out: [1, 2, "san", "hello world", False, 3.14]
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> 列表的有序性
+listB = [23, 14, 56, 91, 12, 34, 11, 15]
+for i in range(len(listB)):
+  for j in range(len(listB)-1):
+    if listB[j] > listB[j+1]:
+      listB[j], listB[j+1] = listB[j+1], listB[j]
+print(listB)
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+#> list列表的操作方法
+listC = [1, 2, 3]
+
+##>> 增加元素
+listC.append("san")              # Out: [1, 2, 3, 'san']
+listC.insert(2, "insert")        # Out: [1, 2, 'insert', 3, 'san']
+listC.extend([4, 5, 6])          # Out: [1, 2, 'insert', 3, 'san', 4, 5, 6]
+listC.extend(("七", "八", "九"))  # Out: [1, 2, 'insert', 3, 'san', 4, 5, 6, '七', '八', '九']
+
+##>> 删除元素
+listC.pop()            # Out: [1, 2, 'insert', 3, 'san', 4, 5, 6, '七', '八']
+listC.remove('san')    # Out: [1, 2, 'insert', 3, 4, 5, 6, '七', '八']
+
+##>> 修改元素
+listC[1] = "二"        # Out: [1, '二', 'insert', 3, 4, 5, 6, '七', '八']
+listB = [23, 14, 56, 91, 12, 34, 11, 15]
+listB.sort()              # Out: [11, 12, 14, 15, 23, 34, 56, 91]
+listB.sort(reverse=True)  # Out: [91, 56, 34, 23, 15, 14, 12, 11]
+
+##>> 查询元素
+listC.index('七')      # Out: 8 # 索引号
+listC.count(1)        # Out: 1 # 数量
+```
+
+**字典的定义声明和操作方法**
+
+```python
+#!/usr/bin/env python311
+#
+# author: <@xxxxxx>
+# email: <@xxxxxx@company_email_inc.com>
+# date: <@create_time>
+# business: <@business_name>
+
+
+#> 字典定义
+dictA = {'key1': 'value', 'key2': 'value'}
+dictB = dict([('key1', 'value'), ('key2', 'value')])
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+for key in dictA.keys():
+    print(key)
+key1
+key2
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+for key in dictA.keys():
+    print(key, dictA[key])
+key1 value
+key2 value
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+for item in dictA.items():
+    print(item)
+('key1', 'value')
+('key2', 'value')
+
+# --------------------------------------------我是分割线------------------------------------------------#
+
+dir(dictA)
+[......
+ 'clear',
+ 'copy',
+ 'fromkeys',
+ 'get',
+ 'items',
+ 'keys',
+ 'pop',
+ 'popitem',
+ 'setdefault',
+ 'update',
+ 'values']
+
+dictA = {'key1': 'value', 'key2': 'value'}
+
+##>> 增加键值
+dictA.update({'key3': 'value'})         # Out: {'key1': 'value', 'key2': 'value', 'key3': 'value'}
+dictA.setdefault('key4', 'keyvalue111') # Out: {'key1': 'value', ......, 'key4': 'keyvalue111'}
+{}.fromkeys(['k1', 'k2', 'k3', 'k4'])   # Out: {'k1': None, 'k2': None, 'k3': None, 'k4': None}
+
+##>> 删除键值
+dictA.pop('key1')           # Out: {'key2': 'value', 'key3': 'value', 'key4': 'keyvalue111'}
+dictA.popitem()
+dictA.popitem()             # Out: {'key2': 'value'}
+
+##>> 键值改动
+dictA['key2'] = 'value222'             # Out: {'key2': 'value222'}
+dictA.update({'key2': 'value123'})     # Out: {'key2': 'value123'}
+
+##>> dict键值对查询
+dictA.items()      # Out: dict_items([('key2', 'value123')])
+dictA.keys()       # Out: dict_keys(['key2'])
+dictA.values()     # Out: dict_values(['value123'])
+dictA.get('key2')  # Out: 'value123'
+```
+
+
+
+### 五、Python函数
+
+自定义函数可以将重复使用的代码功能片段封装成一段单独可重复执行的功能, 这样可以避免重复代码的出现, 减小了代码冗余程度从而提升了编程效率, 自定义函数也是日常开发过程中最为常用的编程手段之一; 自定义函数的学习包含参数定义、返回值定义、函数体定义以及逻辑设定等方法;
+
+
+
+### 六、Python库
+
+模块并不是一个新奇的概念, 模块其实就是多个函数或类集合成的一个文件, 也可以称之为叫做包; 包里面封装了不同类型、不同功能的类或函数, 从而让程序员在其`.py` 文件中对其进行调用, 从而实现跨文件调用功能实例的方法, 也同样可以在整个项目中实现降低冗余; 
+
+```bash
+## os, sys
+(pystudy) ➜  ~ export TESTENV='123'
+(pystudy) ➜  ~ ipython
+In [1]: import os
+In [2]: os.getenv('TESTENV')
+Out[2]: '123'
+In [3]: os.mkdir(path='/Users/chaoliu/Documents/testdir', mode=755)
+In [4]: os.rmdir('/Users/chaoliu/Documents/testdir')
+
+In [5]: dir(os)
+......
+
+## subprocess
+In [6]: import subprocess
+
+In [7]: help(subprocess.Popen)
+
+In [8]: execute = subprocess.Popen(
+    ...:     args="ls -l ~/Documents",
+    ...:     shell=True,
+    ...:     stdout=subprocess.PIPE,
+    ...:     stderr=subprocess.STDOUT,
+    ...:     encoding='utf-8'
+    ...: )
+
+In [9]: if execute.poll() == 0:
+    ...:     result = execute.communicate()[0]
+    ...:     print(result)
+    ...:
+total 0
+drwxr-xr-x@ 6 chaoliu  staff  192  1  5 15:38 Codes
+drwxr-xr-x@ 2 chaoliu  staff   64 12  7 11:29 Docs
+drwxr-xr-x@ 3 chaoliu  staff   96  1 10 11:08 Projects
+drwxr-xr-x@ 4 chaoliu  staff  128 12  9 15:28 SnapShots
+drwxr-xr-x@ 4 chaoliu  staff  128  1  7 19:13 Virtualenvs
+
+## re
+In [10]: import re
+
+In [11]: regx = re.compile("\d+")
+In [12]: content = "my age is 24"
+In [13]: regx.findall(content)
+Out[13]: ['24']
+
+In [14]: contentB = "my age is 456"
+In [15]: regx.findall(contentB)
+Out[15]: ['456']
+
+## json(互联网中如何传输数据【字符串】)
+In [1]: data = {
+   ...:   'os_system': 'centos',
+   ...:   'version': '7.9.2009',
+   ...:   'shell': 'Bash',
+   ...:   'ipaddress': '192.168.108.11',
+   ...:   'hostname': 'cloudclass'
+   ...: }
+
+In [2]: type(data)
+Out[2]: dict
+
+In [3]: import json
+In [4]: result = json.dumps(data)
+In [5]: result
+Out[5]: '{"os_system": "centos", "version": "7.9.2009", "shell": "Bash", "ipaddress": "192.168.108.11", "hostname": "cloudclass"}'
+In [6]: type(result)
+Out[6]: str
+
+In [7]: result_to_dict = json.loads(result)
+In [8]: result_to_dict
+Out[8]:
+{'os_system': 'centos',
+ 'version': '7.9.2009',
+ 'shell': 'Bash',
+ 'ipaddress': '192.168.108.11',
+ 'hostname': 'cloudclass'}
+In [9]: type(result_to_dict)
+Out[9]: dict
+```
+
+```python
+## requests
+>>> import requests
+>>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass'))
+>>> r.status_code
+200
+>>> r.headers['content-type']
+'application/json; charset=utf8'
+>>> r.encoding
+'utf-8'
+>>> r.text
+'{"authenticated": true, ...'
+>>> r.json()
+{'authenticated': True, ...}
+
+## pymysql
+CREATE TABLE `users` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `email` varchar(255) COLLATE utf8_bin NOT NULL,
+    `password` varchar(255) COLLATE utf8_bin NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
+AUTO_INCREMENT=1 ;
+
+import pymysql.cursors
+
+# Connect to the database
+connection = pymysql.connect(host='localhost',
+                             user='user',
+                             password='passwd',
+                             database='db',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+with connection:
+    with connection.cursor() as cursor:
+        # Create a new record
+        sql = "INSERT INTO `users` (`email`, `password`) VALUES (%s, %s)"
+        cursor.execute(sql, ('webmaster@python.org', 'very-secret'))
+
+    # connection is not autocommit by default. So you must commit to save
+    # your changes.
+    connection.commit()
+
+    with connection.cursor() as cursor:
+        # Read a single record
+        sql = "SELECT `id`, `password` FROM `users` WHERE `email`=%s"
+        cursor.execute(sql, ('webmaster@python.org',))
+        result = cursor.fetchone()
+        print(result)
+
+## paramiko
+import paramiko
+
+client = paramiko.SSHClient()
+privkey = paramiko.RSAKey.from_private_key_file('~/.ssh/id_rsa')
+client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+client.connect(hostname='192.168.108.11', port=22, username='root', pkey=privkey)
+stdin, stdout, stderr = client.exec_command(f"ifconfig")
+if stdout is None:
+    print(stderr.read().decode('utf-8'))
+print(stdout.read().decode('utf-8'))
+client.close()
+```
+
+```python
+$ pip install wheel twine
+$ tree .
+├── addn
+│   ├── __init__.py
+│   └── add_number.py
+└── setup.py
+1 directory, 3 files
+
+$ vim setup.py
+from distutils.core import setup
+packages = ['addn']
+setup(
+    name='addn',                            # pip list 时显示的包名
+    version='0.0.1',                        # 版本号
+    author='mirschao',                      # 作者名
+    packages=packages,                      # import 时写的名字
+)
+
+$ vim addn/__init__.py
+from . import add_number
+
+$ vim addn/add_number.py
+def add(n=0, m=0):
+    return n + m
+
+$ python setup.py build
+$ python setup.py sdist
+$ python setup.py bdist_wheel
+$ tree .
+.
+├── addn
+│   ├── __init__.py
+│   └── add_number.py
+├── addn.egg-info
+│   ├── PKG-INFO
+│   ├── SOURCES.txt
+│   ├── dependency_links.txt
+│   └── top_level.txt
+├── build
+│   ├── bdist.macosx-10.9-x86_64
+│   └── lib
+│       └── addn
+│           ├── __init__.py
+│           └── add_number.py
+├── dist
+│   ├── addn-0.0.1-py3-none-any.whl
+│   └── addn-0.0.1.tar.gz
+└── setup.py
+7 directories, 11 files
+
+$ twine upload dist/*
+Uploading distributions to https://upload.pypi.org/legacy/
+Enter your username: mirschao
+Enter your password:
+Uploading addn-0.0.1-py3-none-any.whl
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 kB • 00:00 • ?
+Uploading addn-0.0.1.tar.gz
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 kB • 00:00 • ?
+View at:
+https://pypi.org/project/addn/0.0.1/
 ```
 
 
